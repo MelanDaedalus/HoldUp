@@ -1,0 +1,76 @@
+name: Desktop builds
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  native-mac:
+    name: Native macOS (arm64)
+    runs-on: macos-15
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Run native tests
+        run: ./Tests/run-tests.sh
+      - name: Build native app
+        run: ./build-app.sh
+      - name: Create local-test disk image
+        run: ./package-mac.sh --local-test 'build/Hold UP.app' build/ci-packages
+      - name: Upload native macOS disk image
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: hold-up-native-macos-arm64-local-test
+          path: build/ci-packages/*-local-test.dmg
+          if-no-files-found: error
+
+  portable-desktop:
+    name: Portable desktop (${{ matrix.platform }})
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows-x64
+            runner: windows-2025
+            script: package:win
+            artifacts: desktop/dist/*.exe
+          - platform: linux-x64
+            runner: ubuntu-24.04
+            script: package:linux
+            artifacts: desktop/dist/*.AppImage
+          - platform: macos-arm64
+            runner: macos-15
+            script: package:mac
+            artifacts: desktop/dist/*.dmg
+    defaults:
+      run:
+        working-directory: desktop
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install desktop dependencies
+        run: npm ci
+      - name: Run desktop tests
+        run: npm test
+      - name: Package portable desktop app
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+        run: npm run ${{ matrix.script }}
+      - name: Upload desktop packages
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: hold-up-portable-${{ matrix.platform }}
+          path: ${{ matrix.artifacts }}
+          if-no-files-found: error

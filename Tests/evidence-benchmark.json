@@ -1,0 +1,314 @@
+[
+  {
+    "id": "census-old-count",
+    "claim": "As of July 1, 2025, the United States had 331,449,281 residents.",
+    "note": "Constructed date substitution. The fixture paraphrases Census QuickFacts and preserves both published values.",
+    "sources": [
+      {
+        "url": "https://www.census.gov/quickfacts/fact/table/US/PST045224",
+        "title": "U.S. Census Bureau QuickFacts: United States",
+        "text": "The 2020 Census counted 331,449,281 U.S. residents on April 1, 2020. For July 1, 2025, the Census Bureau estimates 341,784,857 U.S. residents."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "time",
+        "relation": "Challenges"
+      }
+    ]
+  },
+  {
+    "id": "census-geography",
+    "claim": "North America had about 340.1 million residents on July 1, 2024.",
+    "note": "Constructed geographic overgeneralization. The fixture paraphrases the national estimate, which does not enumerate the continent.",
+    "sources": [
+      {
+        "url": "https://www.census.gov/library/stories/2024/12/population-estimates.html",
+        "title": "U.S. Census Bureau: New 2024 Population Estimates",
+        "text": "On July 1, 2024, the United States population was estimated at 340.1 million, compared with 336.8 million as of July 1, 2023. These are U.S. national population estimates."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "scope",
+        "relation": "Narrower scope"
+      }
+    ]
+  },
+  {
+    "id": "yellowstone-wrong-baseline",
+    "claim": "Yellowstone recreation visits increased by 44% from 2023 to 2024.",
+    "note": "Constructed baseline swap. The fixture paraphrases the Park Facts figures and the agency's description of the flood year.",
+    "sources": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "title": "National Park Service: Yellowstone Park Facts",
+        "text": "Yellowstone counted 4,744,353 visits in 2024 and 4,501,382 visits in 2023. NPS compared 2024 to 2022 for its reported 44% increase. Floods interrupted access to parts of Yellowstone in 2022."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "baseline",
+        "relation": "Challenges"
+      }
+    ]
+  },
+  {
+    "id": "yellowstone-unproven-cause",
+    "claim": "Yellowstone's 44% increase in recreation visits from 2022 to 2024 proves that a new marketing campaign caused the increase.",
+    "note": "Constructed causal claim. The visitation numbers and flood disruption in the paraphrased fixture are real. No causal conclusion about marketing follows from them.",
+    "sources": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "title": "National Park Service: Yellowstone Park Facts",
+        "text": "Yellowstone had approximately 4.74 million recreation visits in 2024, a 44% increase relative to 2022. Flood damage in 2022 limited public access to parts of the park."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "cause",
+        "relation": "Unclear"
+      }
+    ]
+  },
+  {
+    "id": "yellowstone-distinct-metrics",
+    "claim": "Two official NPS reports disagree on Yellowstone's 2024 recreation visit total: one reported 4,744,353 and the other reported 2,324,734.",
+    "note": "Constructed disagreement based on real NPS figures. The fixtures paraphrase the park-wide and state-level tables. The second figure is a Wyoming allocation, so the two reports are not describing the same scope.",
+    "sources": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "title": "National Park Service: Yellowstone Park Facts",
+        "text": "The annual visitation figures for Yellowstone National Park list 4,744,353 recreation visits for 2024."
+      },
+      {
+        "url": "https://irma.nps.gov/DataStore/FileSource/Get/2310175?filename=Statistical+abstract+2024.pdf",
+        "title": "National Park Service: Statistical Abstract 2024, figures by state",
+        "text": "The state-level recreation table lists 2,324,734 Yellowstone National Park recreation visits under Wyoming for 2024. This table groups figures by state; the park spans Wyoming, Montana and Idaho."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "scope",
+        "relation": "Narrower scope"
+      }
+    ],
+    "expectedConflict": false
+  },
+  {
+    "id": "freshwater-denominator",
+    "claim": "About 1.3% of all water on Earth is freshwater in lakes and rivers at the surface.",
+    "note": "Constructed denominator substitution. The fixture paraphrases the USGS graphic explanation. About 1.3% is a share of freshwater, itself about 2.5% of all water.",
+    "sources": [
+      {
+        "url": "https://water.usgs.gov/edu/gallery/watercyclekids/earth-water-distribution.html",
+        "title": "USGS Water Science School: Where is Earth's Water?",
+        "text": "USGS estimates that freshwater makes up 2.5% of all Earth's water. Surface water such as lakes and rivers represents about 1.3% of freshwater."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "baseline",
+        "relation": "Challenges"
+      }
+    ]
+  },
+  {
+    "id": "bts-coverage",
+    "claim": "In 2024, 78.10% of all flights around the world arrived on time.",
+    "note": "Constructed global extrapolation. The fixture paraphrases the BTS release and preserves its reporting coverage.",
+    "sources": [
+      {
+        "url": "https://www.bts.gov/newsroom/air-travel-consumer-report-december-2024-full-year-2024-numbers",
+        "title": "Bureau of Transportation Statistics: Air Travel Consumer Report, full year 2024",
+        "text": "For full-year 2024, BTS reported a 78.10% on-time arrival rate for the reporting marketing carriers in its U.S. Air Travel Consumer Report. The comparable 2023 rate for reporting marketing carriers was 78.34%."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "scope",
+        "relation": "Narrower scope"
+      }
+    ]
+  },
+  {
+    "id": "bts-accurate-control",
+    "claim": "The reporting marketing carriers in the BTS Air Travel Consumer Report had an on-time arrival rate of 78.10% in 2024.",
+    "note": "Accurate control written from the named primary source. The fixture uses a brief exact extract.",
+    "sources": [
+      {
+        "url": "https://www.bts.gov/newsroom/air-travel-consumer-report-december-2024-full-year-2024-numbers",
+        "title": "Bureau of Transportation Statistics: Air Travel Consumer Report, full year 2024",
+        "text": "In 2024, the reporting marketing carriers posted an on-time arrival rate of 78.10%, down from 78.34% in 2023."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "figure",
+        "relation": "Supports"
+      }
+    ]
+  },
+  {
+    "id": "iphone-revenue-scope",
+    "claim": "Apple's total net sales in fiscal 2024 were $201.183 billion.",
+    "note": "Constructed company-versus-product substitution. The fixture paraphrases line items from Apple's filing and converts millions to billions.",
+    "sources": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm",
+        "title": "Apple Inc., fiscal 2024 Form 10-K, Net Sales by Category",
+        "text": "For the fiscal year ended September 28, 2024, Apple reported company-wide total net sales of $391.035 billion. Of that total, iPhone net sales alone were $201.183 billion."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "figure",
+        "relation": "Challenges"
+      }
+    ]
+  },
+  {
+    "id": "apollo-dates-by-clock",
+    "claim": "NASA's dates for Armstrong's first step conflict because one record says July 20, 1969 and another says July 21, 1969.",
+    "note": "Constructed apparent disagreement. Both excerpts paraphrase NASA records. Even the NASA timeline assigns different dates to the same instant because it presents several time standards.",
+    "sources": [
+      {
+        "url": "https://www.nasa.gov/wp-content/uploads/static/history/ap11ann/ap11events.html",
+        "title": "NASA History: Apollo 11 Record of Lunar Events",
+        "text": "The same Armstrong-on-lunar-surface event appears at 02:56:15 GMT on July 21, 1969 and at 21:56:15 Eastern Standard Time on July 20, 1969 in the NASA table."
+      },
+      {
+        "url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11.step.html",
+        "title": "NASA Apollo Lunar Surface Journal: One Small Step",
+        "text": "The surface journal identifies Armstrong's first step by mission elapsed time, about 109 hours and 24 minutes after launch. Its step record describes the same event as the record of lunar events."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "time",
+        "relation": "Challenges"
+      }
+    ],
+    "expectedConflict": false
+  },
+  {
+    "id": "moon-noncomparable-measures",
+    "claim": "NASA reports conflicting lengths of time from one new Moon to the next: 27.3 days and 29.5 days.",
+    "note": "Constructed apparent disagreement. These paraphrased primary materials measure different events: an orbit around Earth and a return to the same visible lunar phase.",
+    "sources": [
+      {
+        "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/moon/",
+        "title": "NASA Glenn Research Center: Moon",
+        "text": "The Moon makes a complete orbit around Earth in 27.3 days. This is an orbital revolution around Earth."
+      },
+      {
+        "url": "https://science.nasa.gov/moon/moon-phases/",
+        "title": "NASA Science: Moon Phases",
+        "text": "A full sequence of lunar phases takes about 29.5 days from new Moon to new Moon. The Moon goes around Earth in about 27.3 days, so the phase cycle takes longer than an orbital revolution."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "measure",
+        "relation": "Challenges"
+      }
+    ],
+    "expectedConflict": false
+  },
+  {
+    "id": "moon-average-not-fixed",
+    "claim": "The Moon is always 238,855 miles away from Earth.",
+    "note": "Constructed average-to-constant substitution. The first fixture is a brief exact extract. The second is a paraphrase of NASA's explanation of lunar distance.",
+    "sources": [
+      {
+        "url": "https://science.nasa.gov/moon/facts/",
+        "title": "NASA Science: Moon Facts",
+        "text": "The Moon is an average of 238,855 miles (384,400 kilometers) away."
+      },
+      {
+        "url": "https://spaceplace.nasa.gov/moon-distance/en/",
+        "title": "NASA Space Place: How Far Away Is the Moon?",
+        "text": "The Moon's distance changes because its orbit is not circular. The distance is about 225,309 miles at the closest point and 251,903 miles at the farthest point."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "scope",
+        "relation": "Challenges"
+      }
+    ],
+    "expectedConflict": false
+  },
+  {
+    "id": "pluto-wrong-organization",
+    "claim": "NASA voted to reclassify Pluto as a dwarf planet in 2006.",
+    "note": "Constructed attribution substitution. The fixture paraphrases the IAU's report of the official vote and preserves the outcome.",
+    "sources": [
+      {
+        "url": "https://www.iau.org/IAU/Iau/News/PR2006/iau-2006-general-assembly-resolution-votes.aspx",
+        "title": "International Astronomical Union: 2006 General Assembly resolution votes",
+        "text": "In 2006, members of the International Astronomical Union voted on the definitions of planet and dwarf planet at the IAU General Assembly. The adopted resolution classified Pluto as a dwarf planet."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "attribution",
+        "relation": "Challenges"
+      }
+    ]
+  },
+  {
+    "id": "usno-century-control",
+    "claim": "Under the Gregorian calendar, 2000 was a leap year, but 1900 was not.",
+    "note": "Accurate control written from the named primary source. The fixture paraphrases the rule and examples.",
+    "sources": [
+      {
+        "url": "https://aa.usno.navy.mil/faq/leap_years",
+        "title": "U.S. Naval Observatory: Leap Years",
+        "text": "Under Gregorian rules, years divisible by 4 are leap years except for century years not divisible by 400. This makes 2000 a leap year and 1900 a common year."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "assertion",
+        "relation": "Supports"
+      }
+    ]
+  },
+  {
+    "id": "nist-conversion-control",
+    "claim": "One kilogram equals 1,000 grams.",
+    "note": "Accurate control written from NIST's SI guide. The fixture uses a brief exact extract with regular spaces.",
+    "sources": [
+      {
+        "url": "https://www.nist.gov/pml/owm/writing-si-metric-system-units",
+        "title": "NIST: Writing with SI (Metric System) Units",
+        "text": "For example, add the prefix kilo, which means a thousand, to the unit gram to indicate 1000 g; thus 1000 g becomes 1 kg."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "figure",
+        "relation": "Supports"
+      }
+    ]
+  },
+  {
+    "id": "iana-direct-contradiction",
+    "claim": "IANA makes example.com and example.org available for domain registration or transfer.",
+    "note": "Constructed inversion of the primary policy. The fixture combines a short paraphrase identifying the domains with a brief exact extract.",
+    "sources": [
+      {
+        "url": "https://www.iana.org/help/example-domains",
+        "title": "IANA: Example Domains",
+        "text": "IANA maintains example.com and example.org for documentation. They are not available for registration or transfer."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "assertion",
+        "relation": "Challenges"
+      }
+    ]
+  }
+]

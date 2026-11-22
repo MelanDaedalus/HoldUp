@@ -1,0 +1,42 @@
+{
+  "name": "claim-check-desktop",
+  "version": "0.5.1",
+  "description": "Review claims and their sources using a local model.",
+  "author": "Hold UP",
+  "private": true,
+  "desktopName": "local.claimcheck.desktop.desktop",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.cjs",
+    "package:mac": "electron-builder --mac --arm64 --publish never",
+    "package:win": "electron-builder --win --x64 --publish never",
+    "package:linux": "electron-builder --linux --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "45.4.1",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "local.claimcheck.desktop",
+    "productName": "Hold UP",
+    "artifactName": "Hold-UP-${version}-portable-${os}-${arch}.${ext}",
+    "icon": "ui/icon.png",
+    "files": ["main.cjs", "preload.cjs", "review.cjs", "ollama.cjs", "ui/**/*"],
+    "mac": {
+      "target": "dmg",
+      "identity": "-",
+      "hardenedRuntime": false,
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Utility",
+      "executableName": "hold-up",
+      "syncDesktopName": true
+    }
+  }
+}

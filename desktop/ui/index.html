@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Hold UP</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <h1>Hold UP</h1>
+      </div>
+      <p class="local-status" id="local-status" data-state="waiting" role="status">Connecting to Ollama</p>
+    </header>
+
+    <section class="model-panel" aria-label="Model settings">
+      <div class="model-row">
+        <label for="model">Local model</label>
+        <select id="model" disabled><option value="">Finding installed models…</option></select>
+        <button id="refresh" type="button" disabled>Refresh</button>
+      </div>
+      <p id="model-status" class="status" role="status"></p>
+      <p id="model-help" class="help" hidden>Install Ollama if needed. Open it, turn on <strong>Disable cloud features</strong> in settings, and install a local text model. Then choose <strong>Refresh</strong>.</p>
+    </section>
+
+    <form id="check-form" class="panel" novalidate>
+      <div class="heading-row">
+        <label class="primary-label" for="claim">Claim or passage</label>
+        <button type="button" id="paste" disabled>Paste clipboard</button>
+      </div>
+      <textarea id="claim" rows="4" placeholder="Enter the words you want to check" spellcheck="false" required></textarea>
+      <details class="context-panel" id="context-panel">
+        <summary>Add context</summary>
+        <label class="field">Surrounding text or background <span class="optional">optional</span>
+          <textarea id="context" rows="3" spellcheck="false"></textarea>
+        </label>
+      </details>
+      <div class="actions">
+        <button type="submit" class="primary" id="check" disabled>Check claim</button>
+        <button type="button" data-cancel="check" hidden>Cancel</button>
+      </div>
+      <p id="check-status" class="status" role="status"></p>
+    </form>
+
+    <section id="check-results" class="results" aria-label="Claim findings" hidden></section>
+
+    <details class="panel sources-panel" id="sources-panel">
+      <summary>Compare sources</summary>
+      <form id="search-form" class="search-form" novalidate>
+        <label for="query">Search terms</label>
+        <div class="search-row">
+          <input id="query" type="search" autocomplete="off" spellcheck="false">
+          <button type="submit" id="search" disabled>Search Google</button>
+        </div>
+        <p class="help">This sends the search terms to Google in your browser.</p>
+        <p id="search-status" class="status" role="status"></p>
+      </form>
+      <form id="sources-form" novalidate>
+        <p id="source-help" class="help">Paste text from up to three sources. Links serve as references.</p>
+        <div id="source-fields"></div>
+        <div class="actions">
+          <button type="submit" class="primary" id="compare" disabled>Compare with claim</button>
+          <button type="button" data-cancel="evidence" hidden>Cancel</button>
+          <button type="button" id="add-source">Add another source</button>
+        </div>
+        <p id="evidence-status" class="status" role="status"></p>
+      </form>
+      <section id="evidence-results" class="results" aria-label="Source results" hidden></section>
+    </details>
+
+    <footer>
+      <details id="rule-panel" class="rule-panel" hidden>
+        <summary>Checking rules</summary>
+        <form id="rule-form">
+          <div id="rules"></div>
+          <button type="submit" id="save-rules">Save rules</button>
+          <p id="rule-status" class="status" role="status"></p>
+        </form>
+      </details>
+      <p class="help">Claim and source checks run locally using Ollama.</p>
+      <p class="help" id="shortcut" hidden></p>
+    </footer>
+  </main>
+
+  <template id="source-template">
+    <fieldset class="source-fields">
+      <legend></legend>
+      <label class="field">Source text
+        <textarea rows="3" data-source="text" spellcheck="false" aria-describedby="source-help"></textarea>
+      </label>
+      <div class="source-meta">
+        <label class="field">Title <span class="optional">optional</span>
+          <input data-source="title" type="text" autocomplete="off">
+        </label>
+        <label class="field">Link <span class="optional">optional</span>
+          <input data-source="url" type="url" autocomplete="off" placeholder="https://" spellcheck="false">
+        </label>
+      </div>
+      <button type="button" data-remove-source hidden>Remove source</button>
+    </fieldset>
+  </template>
+</body>
+</html>

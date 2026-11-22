@@ -1,0 +1,110 @@
+[
+  {
+    "id": "old-faithful-vs-park",
+    "claim": "Yellowstone's geysers as a group average about 90 minutes between eruptions.",
+    "note": "Constructed scope expansion. The excerpt paraphrases the National Park Service description of Old Faithful. It provides an interval for that geyser only and gives no average across Yellowstone.",
+    "sources": [
+      {
+        "url": "https://www.nps.gov/articles/old-faithful-geyser.htm",
+        "title": "National Park Service: Old Faithful Geyser",
+        "text": "At Old Faithful in Yellowstone National Park, the recorded time between eruptions averages about 90 minutes, with intervals ranging from 50 to 127 minutes. These figures describe Old Faithful."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "scope",
+        "relation": "Narrower scope"
+      }
+    ]
+  },
+  {
+    "id": "texas-wind-vs-national-generation",
+    "claim": "Wind supplied 22% of U.S. electricity net generation in 2024.",
+    "note": "Constructed geographic extrapolation. The excerpt paraphrases the EIA state analysis. The percentage applies to Texas generation. The excerpt supplies no national share for this measure.",
+    "sources": [
+      {
+        "url": "https://www.eia.gov/states/TX/analysis",
+        "title": "U.S. Energy Information Administration: Texas State Energy Profile Analysis",
+        "text": "The EIA's 2024 state figures put wind at 22% of total in-state electricity net generation in Texas. Wind was Texas's second-largest source of in-state electricity generation."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "scope",
+        "relation": "Narrower scope"
+      }
+    ]
+  },
+  {
+    "id": "space-station-vs-satellites",
+    "claim": "Earth-orbiting satellites as a group average about 90 minutes per orbit.",
+    "note": "Constructed population expansion. The excerpt paraphrases the orbital-period figure in NASA's station FAQ. It covers a single spacecraft and provides no average for the broader satellite population.",
+    "sources": [
+      {
+        "url": "https://www.nasa.gov/missions/station/spot-the-station-frequently-asked-questions/",
+        "title": "NASA: Spot the Station Frequently Asked Questions",
+        "text": "For the International Space Station, one complete trip around Earth takes approximately 90 minutes. The station travels roughly 17,500 miles per hour."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "scope",
+        "relation": "Narrower scope"
+      }
+    ]
+  },
+  {
+    "id": "jefferson-volumes-control",
+    "claim": "The Library of Congress received 6,487 volumes when it bought Thomas Jefferson's library in 1815.",
+    "note": "Constructed accurate control. The excerpt paraphrases the Library of Congress exhibition and preserves the year and the recorded number of volumes received.",
+    "sources": [
+      {
+        "url": "https://www.loc.gov/exhibits/jefferson/jefflib.html",
+        "title": "Library of Congress: Jefferson's Library",
+        "text": "Congress bought Thomas Jefferson's personal library in 1815. The Library of Congress records show that 6,487 volumes were received in the purchase."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "figure",
+        "relation": "Supports"
+      }
+    ]
+  },
+  {
+    "id": "denali-elevation-control",
+    "claim": "The official 2015 survey measured Denali's summit at 20,310 feet.",
+    "note": "Constructed accurate control. The excerpt paraphrases the official USGS release about the GPS survey and preserves its measured elevation.",
+    "sources": [
+      {
+        "url": "https://www.usgs.gov/news/national-news-release/new-elevation-nations-highest-peak",
+        "title": "U.S. Geological Survey: New Elevation for Nation’s Highest Peak",
+        "text": "In September 2015, the U.S. Geological Survey announced an official summit elevation of 20,310 feet for Denali, based on a GPS survey."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "figure",
+        "relation": "Supports"
+      }
+    ]
+  },
+  {
+    "id": "great-lakes-entirely-in-us",
+    "claim": "Every Great Lake lies wholly within the United States.",
+    "note": "Constructed false scope claim. The excerpt paraphrases the EPA's description, cross-checked against its Great Lakes Water Quality Guidance. The EPA explicitly makes Lake Michigan the sole exception and accounts for the other four lakes, so the evidence directly refutes the universal claim.",
+    "sources": [
+      {
+        "url": "https://www.epa.gov/greatlakes/lake-michigan",
+        "title": "U.S. Environmental Protection Agency: Lake Michigan",
+        "text": "Of the five Great Lakes, Lake Michigan alone lies wholly within the United States. Canada and the United States share each of the other four lakes: Superior, Huron, Erie, and Ontario."
+      }
+    ],
+    "expectations": [
+      {
+        "dimension": "scope",
+        "relation": "Challenges"
+      }
+    ]
+  }
+]
